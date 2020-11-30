@@ -1,6 +1,9 @@
 package com.swikriti.studentmgmt;
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +20,10 @@ public class StudentController {
 		return "student/student-form";
 	}
 	@RequestMapping(value="store", method = RequestMethod.POST)
-	public String store(@ModelAttribute("student") Student student) {
-		
+	public String store(@Valid @ModelAttribute("student") Student student, BindingResult thebindingresult) {
+		if (thebindingresult.hasErrors()) {
+			return "student/student-form";
+		}
 		return "student/profile";
 		
 	}

@@ -8,13 +8,22 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Student Form</title>
+<style >
+.error{
+color:red;
+}
+</style>
 </head>
 <body>
 <form:form id="student-form" action= "store" modelAttribute="student" method="POST">
 <label for="name">Name</label>
-<form:input placeholder="enter student name" path="name" id="name"/><br><br>
+<form:input placeholder="enter student name" path="name" id="name"/>
+<form:errors path="name" cssClass="error"/><br><br>
 <label for="address">Address</label>
-<form:input placeholder="enter student address" path="address" id="address"/>
+<form:input placeholder="enter student address" path="address" id="address"/><br><br>
+<label for="email">Email</label>
+<form:input placeholder="enter email" path="email" id="email"/>
+<form:errors path="name" cssClass="error"/>
 <br><br>
 <label for="country">Country</label>
 <form:select path="country">

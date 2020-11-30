@@ -2,12 +2,33 @@ package com.swikriti.spring.dto;
 
 import java.util.LinkedHashMap;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+
 public class Student {
+	@NotBlank
+	
 	private String name;
+	@NotEmpty
 	private String address;
+	@NotBlank
 	private String country;
 	private LinkedHashMap<String, String> countryOptions;
+    @NotNull
 	private String gender;
+    @Email
+    private String email;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	private String[] hobbies;
 	public Student() {
 		super();
